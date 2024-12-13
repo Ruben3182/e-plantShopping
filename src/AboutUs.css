@@ -1,8 +1,5 @@
 .about-us-container {
-    width: 1000px;
-    /* margin: 0 auto; */
-    /* padding: 20px; */
-    /* background-color: red; */
+    max-width: 1000px;
     text-align: justify;
   }
   
@@ -30,4 +27,13 @@
 
   .plant_logo_left{
     text-align: left;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .content p{
+      font-size: 20px;
+    }
+    .landing_content h1{
+      font-size: 40px;
+    }
   }

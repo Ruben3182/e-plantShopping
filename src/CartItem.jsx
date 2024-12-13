@@ -8,10 +8,11 @@ const CartItem = ({ onContinueShopping, setAddedToCart }) => {
 
   const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
+  const totalAmount = cart.reduce((total, item) => total + item.cost.slice(1) * item.quantity, 0);
 
   // Calculate total amount for all products in the cart
   const calculateTotalAmount = () => {
-   
+   return totalAmount
   };
 
   const handleContinueShopping = (e) => {
@@ -38,8 +39,11 @@ const CartItem = ({ onContinueShopping, setAddedToCart }) => {
     }
     else if(newObj.quantity == 0){
       dispatch(updateQuantity(newObj));
-      dispatch(removeItem(item));
-      console.log("remove");
+      setAddedToCart((prevState) => {
+        const newObject = { ...prevState };
+        delete newObject[item.name];
+        return newObject;
+      });
     }
   };
 
@@ -76,6 +80,7 @@ const CartItem = ({ onContinueShopping, setAddedToCart }) => {
               <div className="cart-item-total">Total: ${calculateTotalCost(item)}</div>
               <button className="cart-item-delete" onClick={() => handleRemove(item.name)}>Delete</button>
             </div>
+            {item.quantity == 0 && dispatch(removeItem(item.name))}
           </div>
         ))}
       </div>
