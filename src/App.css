@@ -110,6 +110,18 @@
   backdrop-filter: blur(5px);
 }
 
+.product-cost{
+  color: rgb(204, 43, 43);
+  margin-top: 10px;
+}
+
+.product-description{
+  font-size: 14px;
+  font-style: italic;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .product-list-container.visible {
   top: 0;
 }

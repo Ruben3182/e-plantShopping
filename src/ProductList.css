@@ -188,6 +188,14 @@ body {
 
     
 }
+
+.cart-item-count{
+    position: absolute;
+    top: 36px;
+    right: 43px;
+    font-size: 24px;
+    z-index: 100000;
+}
 /* Add Media Query for responsiveness */
 @media (max-width: 768px) {
     .product-card {
